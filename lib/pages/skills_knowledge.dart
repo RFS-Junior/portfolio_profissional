@@ -6,15 +6,12 @@ class SkillsKnowledge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [
-          Header(title: "Conhecimentos e Habilidades"),
-          Center(
-            child: Text("Body Conhecimentos e Habilidades"),
-          ),
-        ],
-      ),
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      color: Colors.purple,
+      height: size.height,
+      width: size.width,
+      child: const Center(child: Text("Conhecimentos e Habilidades")),
     );
   }
 }

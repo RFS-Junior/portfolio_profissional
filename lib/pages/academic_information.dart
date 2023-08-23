@@ -6,15 +6,12 @@ class AcademicInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [
-          Header(title: "Informações academicas"),
-          Center(
-            child: Text("Body Informações academicas"),
-          ),
-        ],
-      ),
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      color: Colors.blue,
+      height: size.height,
+      width: size.width,
+      child: const Center(child: Text("Informações academicas")),
     );
   }
 }

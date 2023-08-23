@@ -6,15 +6,12 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [
-          Header(title: "Projetos"),
-          Center(
-            child: Text("Body Projetos"),
-          ),
-        ],
-      ),
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      color: Colors.red,
+      height: size.height,
+      width: size.width,
+      child: const Center(child: Text("Projetos")),
     );
   }
 }
