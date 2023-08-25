@@ -7,7 +7,7 @@ class SkillsKnowledgeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: Colors.purple,
+      color: Colors.yellow,
       height: size.height,
       width: size.width,
       child: const Center(child: Text("Conhecimentos e Habilidades")),
