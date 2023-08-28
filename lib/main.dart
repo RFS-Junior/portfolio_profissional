@@ -24,9 +24,20 @@ class MainApp extends StatelessWidget {
       routes: [
         GoRoute(
           path: '/',
-          pageBuilder: (context, state) => const MaterialPage(
-            child: HomeApp(),
-          ),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              key: state.pageKey,
+              child: const HomeApp(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: CurveTween(curve: Curves.easeInOutCirc)
+                      .animate(animation),
+                  child: child,
+                );
+              },
+            );
+          },
         ),
       ],
     );
@@ -79,7 +90,13 @@ class HomeApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                MenuNavigation(keys: keys),
+                SizedBox(
+                  width: 200,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: MenuNavigation(keys: keys),
+                  ),
+                ),
               ],
             ),
           ),

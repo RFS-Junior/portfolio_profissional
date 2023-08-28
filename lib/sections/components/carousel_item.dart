@@ -29,25 +29,25 @@ class CarouselItem extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                 child: Text(
                   title,
                   style: const TextStyle(
                       color: Colors.black,
-                      fontSize: 30,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold),
                 ),
               )),
           Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Text(
                   subtitle,
                   textAlign: TextAlign.justify,
                   style: const TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold),
                 ),
               )),
@@ -63,7 +63,11 @@ class CarouselItem extends StatelessWidget {
                         onPressed: () {
                           GoRouter.of(context).go(location);
                         },
-                        child: Text(titleButton),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15.0),
+                          child: Text(titleButton),
+                        ),
                       ),
                     )),
                 Expanded(
@@ -73,14 +77,14 @@ class CarouselItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Container(
-                            width: 40,
-                            height: 30,
+                            width: 70,
+                            height: 35,
                             color: Colors.black54,
                             child: Center(
                                 child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(year),
                             ))),
                       ),

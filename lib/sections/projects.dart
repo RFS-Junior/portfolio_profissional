@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:curso_web/contants.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'components/carousel_item.dart';
 
@@ -27,8 +27,9 @@ class ProjectsSection extends StatelessWidget {
                         "Meus Projetos",
                         style: TextStyle(
                             color: Colors.black,
+                            fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 50),
                       ),
                     )),
                 Expanded(flex: 2, child: Container()),
@@ -39,30 +40,21 @@ class ProjectsSection extends StatelessWidget {
               flex: 4,
               child: CarouselSlider.builder(
                 options: CarouselOptions(
-                  height: 300,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 3),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0.3,
-                  scrollDirection: Axis.horizontal,
-                ),
-                itemCount: 3,
+                    height: MediaQuery.of(context).size.width * 0.22,
+                    viewportFraction: 0.33,
+                    aspectRatio: 1.0,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    autoPlayInterval: const Duration(seconds: 6)),
+                itemCount: Contants.projects.length,
                 itemBuilder:
                     (BuildContext context, int itemIndex, int pageViewIndex) =>
-                        const CarouselItem(
-                  title: 'TESTE1',
-                  subtitle:
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                  year: '2023',
+                        CarouselItem(
+                  title: Contants.projects[itemIndex].title,
+                  subtitle: Contants.projects[itemIndex].subtitle,
+                  year: Contants.projects[itemIndex].periodic.year.toString(),
                   location: '/',
-                  titleButton: 'TESTE3',
+                  titleButton: 'GO',
                 ),
               )),
           Expanded(
